@@ -16,6 +16,14 @@ class BasePricing
   end
   
   def page
-    @page ||= ConnectionService.new(url).page
+    connection_service.page
+  end
+  
+  def no_js_page
+    connection_service.no_js_page
+  end
+  
+  def connection_service
+    @service ||= ConnectionService.new(url)
   end
 end
