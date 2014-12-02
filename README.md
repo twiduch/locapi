@@ -1,7 +1,7 @@
 locapi
 ======
 
-Example of using advanced data model structure
+Example of using advanced data model structure and private/public api interface
 
 TargetGroup - tree structure
 
