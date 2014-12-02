@@ -1,5 +1,7 @@
-
-PanelProvider.create([{code: 1}, {code: 2}, {code: 3}])
+PanelProvider.delete_all
+PanelProvider.create([{code: 1, pricing: :letter_count}, 
+                      {code: 2, pricing: :tag_count}, 
+                      {code: 3, pricing: :node_count}])
 
 Country.delete_all
 Country.create([{country_code: 'UK', panel_provider: PanelProvider.first},
@@ -25,8 +27,9 @@ TargetGroup.create(name: "Root Target Group 4", uuid: SecureRandom.uuid,
 #Create 20 locations
 Location.delete_all
 20.times do |i|
+  country = Country.all[rand(Country.count)]
   Location.create(name: "Location #{i+1}", uuid: SecureRandom.uuid,
-                  secret_code: "Secret #{i+1}")
+                  secret_code: "Secret #{i+1}", country: country)
 end
 
 #Connect locations to location_groups

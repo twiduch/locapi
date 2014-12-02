@@ -25,6 +25,11 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  #  require "#{Rails.root}/db/seeds.rb"
+  end
   config.include FactoryGirl::Syntax::Methods
   
   # If you're not using ActiveRecord, or you'd prefer not to run each of your

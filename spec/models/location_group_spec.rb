@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe LocationGroup, :type => :model do
   let!(:pp1) {create(:panel_provider1)}
-  let!(:uk)  {create(:country_UK, panel_provider: pp1)}
+  let!(:ru)  {create(:country_RU, panel_provider: pp1)}
   let!(:fr)  {create(:country_FR, panel_provider: pp1)}
   let!(:lg1) {create(:location_group1, panel_provider: pp1)}
   let!(:lg2) {create(:location_group2, panel_provider: pp1)}
@@ -14,8 +14,8 @@ RSpec.describe LocationGroup, :type => :model do
   end
   
   it "should reference countries through panel provider" do 
-    expect(lg2.countries).to include(uk, fr)
-    expect(lg1.countries).to include(uk, fr)
+    expect(lg2.countries).to include(ru, fr)
+    expect(lg1.countries).to include(ru, fr)
   end
   
   it "should reference locations" do 

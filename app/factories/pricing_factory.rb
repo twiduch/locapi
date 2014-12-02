@@ -1,9 +1,10 @@
 class PricingFactory < Struct.new(:code)
 
   def pricing
-    case code
-      when 1 then letter_count
-      when 2 then tag_count
+    return unless code
+    case code.to_sym
+      when :letter_count then letter_count
+      when :tag_count then tag_count
     else node_count
     end
   end

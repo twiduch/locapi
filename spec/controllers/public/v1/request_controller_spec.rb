@@ -15,7 +15,7 @@ RSpec.describe Public::V1::RequestController, :type => :controller do
     
     it "assigns @locations" do
       get :locations, country_code: 'UK'
-      expect(assigns(:locations)).to be_a(Array)
+      expect(assigns(:locations))
     end
   end
 

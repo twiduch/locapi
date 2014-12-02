@@ -5,6 +5,8 @@ class PanelProvider < ActiveRecord::Base
   
   after_initialize :set_pricing_model
   validates :code, uniqueness: true, presence: true
+
+  enum pricing: [:letter_count, :tag_count, :node_count]
   
   #to be able to change pricing model for panel dynamically
   attr_accessor :pricing_model
@@ -14,6 +16,6 @@ class PanelProvider < ActiveRecord::Base
   end
   
   def set_pricing_model
-    self.pricing_model = PricingFactory.new(code).pricing
+    self.pricing_model = PricingFactory.new(pricing).pricing
   end
 end

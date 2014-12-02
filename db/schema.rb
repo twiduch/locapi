@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141202000213) do
+ActiveRecord::Schema.define(version: 20141202214913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,12 +48,16 @@ ActiveRecord::Schema.define(version: 20141202000213) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "secret_code"
+    t.integer  "country_id"
   end
+
+  add_index "locations", ["country_id"], name: "index_locations_on_country_id", using: :btree
 
   create_table "panel_providers", force: true do |t|
     t.integer  "code"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "pricing"
   end
 
   create_table "target_group_hierarchies", id: false, force: true do |t|

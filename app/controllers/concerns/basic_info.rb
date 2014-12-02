@@ -9,7 +9,7 @@ module BasicInfo
   end
   
   def country
-    @country ||= Country.find_by_country_code(params[:country_code]) 
+    @country ||= Country.find_by_country_code(params[:country_code].downcase) 
   end
   
   def root_target_groups
