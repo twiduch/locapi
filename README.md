@@ -7,4 +7,4 @@ TargetGroup - tree structure
 
 Location associated to Country through LocationGroup and PanelProvider
 
-Different pricing model based on Strategy pattern applied by FactoryPattern
+Different pricing model based on Strategy pattern applied by Factory pattern
