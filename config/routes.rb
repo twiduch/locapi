@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'locations/:country_code' => 'request#locations'
       get 'target_groups/:country_code' => 'request#target_groups'
-      get 'evaluate_target' => 'request#evaluate_target'
+      post 'evaluate_target' => 'request#evaluate_target'
     end
   end
 
